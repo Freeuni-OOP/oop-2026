@@ -1,4 +1,4 @@
-# oop-2025
+# OOP 2026
 
 ## Google Classroom
 კოდი: **TODO**

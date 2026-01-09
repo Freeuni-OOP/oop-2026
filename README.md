@@ -22,6 +22,3 @@ https://classroom.google.com/u/1/c/NzU0NDkxMDgyNjky
 შემდეგი დოკუმენტები აგიხსნით Git-ის საწყისებს და როგორ გამოიყენოთ ის დავალებების ჩასაბარებლად:
 * [link](https://docs.google.com/document/d/1bQOfcLp23o-F3GR5l-ccrXNwJRv7JXRLBGIMcEh0t94/edit?usp=sharing)
 * [link](https://docs.google.com/document/d/1cpRxmGSkNf-7ynzIr1Bl-NAxfACJH5YjsLbVA4CzSCY/edit#)
-
-ოფიციალური გაიდი:
-* [link](https://github.com/Freeuni-Lekva/git-basics--tamtatop)

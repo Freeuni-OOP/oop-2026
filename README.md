@@ -16,9 +16,3 @@ https://classroom.google.com/u/1/c/NzU0NDkxMDgyNjky
 | 04 - Threads  | 10 | [link](https://classroom.github.com) | TODO       |
 | 05 - Web      | 9 | [link](https://classroom.github.com) | TODO       |
 | Final Project | 35 | [link](https://classroom.github.com) | TODO       |
-
-
-## Git basics
-შემდეგი დოკუმენტები აგიხსნით Git-ის საწყისებს და როგორ გამოიყენოთ ის დავალებების ჩასაბარებლად:
-* [link](https://docs.google.com/document/d/1bQOfcLp23o-F3GR5l-ccrXNwJRv7JXRLBGIMcEh0t94/edit?usp=sharing)
-* [link](https://docs.google.com/document/d/1cpRxmGSkNf-7ynzIr1Bl-NAxfACJH5YjsLbVA4CzSCY/edit#)

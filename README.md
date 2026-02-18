@@ -1,8 +1,8 @@
 # OOP 2026
 
 ## Google Classroom
-კოდი: **TODO**
-https://classroom.google.com/u/1/c/NzU0NDkxMDgyNjky
+კოდი: **gqk5wlpr**
+https://classroom.google.com/c/ODQ1MjQxMjY1ODU0?cjc=gqk5wlpr
 
 ## დავალებები
 დავალებებისთვის გამოვიყენებთ **GitHub Classrooms**, სადაც ყველა დავალებისთვის რეპოზიტორიები შექმნილია. თქვენ მოგიწევთ ინდივიდუალურად დავალებების მოსაწვევები გაააქტიუროთ, რის შემდეგაც თქვენთვის განკუთვნილი პერსონალური რეპოზიტორია შეიქმნება ავტომატურად. რომელიც შეგიძლიათ ლოკალურად ჩამოტვირთოთ თქვენს მანქანაზე **git clone** ბრძანების გამოყენებით, ხოლო **git push** ბრძანებებით კი თქვენი ცვლილებები ატვირთოთ გიტჰაბზე. კოლაბორატორებში არავის დამატება არ მოგიწევთ, ლექტორებს და სექციის ლიდერებს თქვენს რეპოზიტორიებზე წვდომა ავტომატურად ექნება. ვინც მეორედ გადიხართ საგანს და თავიდან გინდათ დავალებების გამოგზავნა თქვენც მოგიწევთ ქვემოთ მოცემული მოსაწვევების გააქტიურება და ახალ რეპოზიტორიაში ნამუშევრების ატვირთვა.
@@ -10,9 +10,9 @@ https://classroom.google.com/u/1/c/NzU0NDkxMDgyNjky
 ## დავალებების მოსაწვევები
 | დავალება      | ქულა | მოსაწვევი | ჩაბარების თარიღი |
 |---------------|------|-----------|------------------|
-| 01 - CodeCamp | 6 | [link](https://classroom.github.com) | TODO             |
-| 02 - Tetris   | 10 | [link](https://classroom.github.com) | TODO       |
-| 03 - Sudoku   | 10 | [link](https://classroom.github.com) | TODO       |
-| 04 - Threads  | 10 | [link](https://classroom.github.com) | TODO       |
-| 05 - Web      | 9 | [link](https://classroom.github.com) | TODO       |
+| 01 - CodeCamp | 6 | [link](https://classroom.github.com/a/7vQx3IOX) | TODO             |
+| 02 - Tetris   | 10 | [link](https://classroom.github.com/a/o0k4_oG_) | TODO       |
+| 03 - Sudoku   | 10 | [link](https://classroom.github.com/a/1RNHqGtd) | TODO       |
+| 04 - Threads  | 10 | [link](https://classroom.github.com/a/ul3CrUrh) | TODO       |
+| 05 - Web      | 9 | [link](https://classroom.github.com/a/Ws9PYJiR) | TODO       |
 | Final Project | 35 | [link](https://classroom.github.com) | TODO       |

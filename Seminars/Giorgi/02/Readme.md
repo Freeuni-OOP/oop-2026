@@ -24,3 +24,10 @@ String toString()
 \
 int toInt()
 * @return აბრუნებს მთელ რიცხვს არაბულ ფორმატში.
+
+-----------
+
+main-ის არგუმენტებით გაშვება:
+
+![step1.png](step1.png)
+![step2.png](step2.png)

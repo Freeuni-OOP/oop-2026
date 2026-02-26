@@ -4,7 +4,8 @@ public class Main {
         Animal animal = new Animal("pudeli");
         Dog dog = new Dog("pudeli");
 
-        System.out.println(animal.equals(dog));
-        System.out.println(dog.equals(animal));
+        // symmetry violation
+        System.out.println(animal.equals(dog)); // true
+        System.out.println(dog.equals(animal)); // false !!!
     }
 }

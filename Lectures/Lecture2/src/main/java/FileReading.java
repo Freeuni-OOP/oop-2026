@@ -5,7 +5,7 @@ import java.io.IOException;
 public class FileReading {
 
     public static void main(String[] args) {
-        // try - with -resources
+        // try-with-resources (auto-close)
         try (BufferedReader reader = new BufferedReader(new FileReader("Lectures/Lecture2/src/main/java/FileReading.java"))) {
             while (true) {
                 String line = reader.readLine();

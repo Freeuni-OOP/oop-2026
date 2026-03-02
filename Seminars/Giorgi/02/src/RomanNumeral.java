@@ -7,6 +7,10 @@ public class RomanNumeral {
 
     private final int arabicNumber;
 
+    /**
+     * @param arabicNumber
+     * @throws IllegalArgumentException
+     */
     RomanNumeral(int arabicNumber) {
         if (arabicNumber < MIN || arabicNumber > MAX) {
             throw new IllegalArgumentException("Arabic number should be in: [" + MIN + "-" + MAX + "]");

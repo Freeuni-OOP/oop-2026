@@ -4,6 +4,7 @@ public class AssertionsExample {
         System.out.println(sqrt(-1));
     }
 
+    // tip: add -ea in vm options to enable assertions
     public static double sqrt(double x) {
         assert x >= 0;
         double r = Math.sqrt(x);

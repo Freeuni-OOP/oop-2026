@@ -1,3 +1,5 @@
+package food;
+
 public class Candy extends Food {
 
     //    @Override !! not working

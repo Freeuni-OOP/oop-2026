@@ -1,3 +1,5 @@
+package food;
+
 public class Food {
 
     boolean same(Food food) {

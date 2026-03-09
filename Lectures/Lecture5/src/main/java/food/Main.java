@@ -2,15 +2,15 @@ package food;
 
 public class Main {
     public static void main(String[] args) {
-        eat();
+        Candy candy = new Candy();
+
+        eat(candy);
     }
 
-    public static void eat() {
-        Food candy = new Food();
+    public static void eat(Food food) {
+        Food broccoli = new Broccoli();
 
-        Food broccoli = new Candy();
-
-        if (candy.same(broccoli)) {
+        if (food.same(broccoli)) {
             System.out.println("broccoli!");
         }
     }

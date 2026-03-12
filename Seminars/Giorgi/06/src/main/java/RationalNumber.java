@@ -1,14 +1,11 @@
-import java.math.BigInteger;
-import java.util.Arrays;
 import java.util.Objects;
 
+/**
+ * @abstraction_function: AF(numerator, denominator) = numerator / denominator
+ * @rep_invariant: gcd = 1, denominator > 0
+ * @safety_from_rep_exposure: checkRep(), final
+ */
 public class RationalNumber {
-
-    /*
-        abstraction function: numerator / denominator
-        rep invariant: gcd = 1, denominator > 0
-        safety from rep exposure: checkRep(), final
-     */
 
     private final int numerator;
 

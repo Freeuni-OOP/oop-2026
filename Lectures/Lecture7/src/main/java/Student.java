@@ -11,4 +11,8 @@ public class Student implements Moodable {
     public String getMood() {
         return "moooooooood";
     }
+
+    public String getStress() {
+        return "I'm stressed!";
+    }
 }

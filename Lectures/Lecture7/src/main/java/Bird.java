@@ -1,7 +1,7 @@
 public abstract class Bird {
 
-    public Bird() {
-        // calls super()
+    public Bird(String name) {
+
     }
 
     public abstract String getName();

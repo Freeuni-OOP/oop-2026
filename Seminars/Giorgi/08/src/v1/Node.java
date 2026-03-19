@@ -2,26 +2,61 @@ package v1;
 
 public class Node {
 
-    // TODO private fields
+    private double value;
+
+    private final char operator;
+
+    private Node left;
+
+    private Node right;
 
     public Node(double value) {
-        // TODO
+        this.value = value;
+        this.operator = '$';
     }
 
     public Node(char operator, Node left, Node right) {
-        // TODO
+        this.operator = operator;
+        this.left = left;
+        this.right = right;
     }
 
     public Node(char operator, double left, double right) {
-        // TODO
+        this(operator, new Node(left), new Node(right));
     }
 
     public double evaluate() {
-        return 0; // TODO
+        switch (operator) {
+            case '$':
+                return value;
+            case '+':
+                return left.evaluate() + right.evaluate();
+            case '-':
+                return left.evaluate() - right.evaluate();
+            case '*':
+                return left.evaluate() * right.evaluate();
+            case '/':
+                return left.evaluate() / right.evaluate();
+            default:
+                throw new IllegalArgumentException("Invalid operator");
+        }
     }
 
     @Override
     public String toString() {
-        return ""; // TODO
+        switch (operator) {
+            case '$':
+                return "" + value;
+            case '+':
+                return "(" + left + "+" + right + ")";
+            case '-':
+                return "(" + left + "-" + right + ")";
+            case '*':
+                return "(" + left + "*" + right + ")";
+            case '/':
+                return "(" + left + "/" + right + ")";
+            default:
+                throw new IllegalArgumentException("Invalid operator");
+        }
     }
 }

@@ -1,9 +1,9 @@
-package mvc.table;
+package swingmvc.table;
 
-import mvc.filter.AndFilter;
-import mvc.filter.FirstNameFilter;
-import mvc.filter.LastNameFilter;
-import mvc.filter.YearFilter;
+import swingmvc.filter.AndFilter;
+import swingmvc.filter.FirstNameFilter;
+import swingmvc.filter.LastNameFilter;
+import swingmvc.filter.YearFilter;
 
 import javax.swing.*;
 import java.awt.*;

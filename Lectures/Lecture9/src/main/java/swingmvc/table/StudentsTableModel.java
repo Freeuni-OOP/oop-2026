@@ -1,4 +1,4 @@
-package mvc.table;
+package swingmvc.table;
 
 import javax.swing.table.AbstractTableModel;
 import java.util.ArrayList;

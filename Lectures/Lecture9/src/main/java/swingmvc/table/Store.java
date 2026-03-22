@@ -1,7 +1,7 @@
-package mvc.table;
+package swingmvc.table;
 
-import mvc.filter.AllFilter;
-import mvc.filter.Filter;
+import swingmvc.filter.AllFilter;
+import swingmvc.filter.Filter;
 
 import java.util.ArrayList;
 import java.util.List;

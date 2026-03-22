@@ -1,6 +1,6 @@
-package mvc.filter;
+package swingmvc.filter;
 
-import mvc.table.Student;
+import swingmvc.table.Student;
 
 import java.util.ArrayList;
 import java.util.List;

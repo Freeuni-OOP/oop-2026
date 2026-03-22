@@ -1,6 +1,6 @@
-package mvc.filter;
+package swingmvc.filter;
 
-import mvc.table.Student;
+import swingmvc.table.Student;
 
 public class YearFilter implements Filter {
 

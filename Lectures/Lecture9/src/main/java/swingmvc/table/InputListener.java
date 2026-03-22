@@ -1,6 +1,6 @@
-package mvc.table;
+package swingmvc.table;
 
-import mvc.filter.Filter;
+import swingmvc.filter.Filter;
 
 public interface InputListener {
 

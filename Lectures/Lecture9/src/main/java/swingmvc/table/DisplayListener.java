@@ -1,4 +1,4 @@
-package mvc.table;
+package swingmvc.table;
 
 import java.util.List;
 

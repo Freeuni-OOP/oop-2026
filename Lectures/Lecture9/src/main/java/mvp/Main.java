@@ -7,6 +7,6 @@ public class Main {
         View v = new ConsoleView();
         Presenter p = new Presenter(m, v);
 
-        p.setName("Giorgi");
+        p.update("giorgi");
     }
 }

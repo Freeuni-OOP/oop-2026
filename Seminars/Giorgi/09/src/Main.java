@@ -1,8 +1,10 @@
-import calculator.SwingView;
+import calculator.*;
 
 public class Main {
 
     public static void main(String[] args) {
-        SwingView view = new SwingView();
+        Controller controller = new Controller(new ConsoleView(), new CalculatorBrain());
+
+        controller.startApp();
     }
 }

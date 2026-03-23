@@ -5,7 +5,7 @@
 
 არქიტექტურა:
 
-##### <span style="color:green; font-size:10px;">- - - - ▶</span> = იყენებს
+##### <span style="color:green; font-size:10px;">- - - -▶</span> = იყენებს
 ##### <span style="color:green; font-size:10px;">───▶</span> = აიმპლემენტირებს
 
 ![mvc-diagram.png](mvc-diagram.png)

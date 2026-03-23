@@ -9,14 +9,14 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <modules>
-        <module>Lecture2</module>
-        <module>Lecture3</module>
-        <module>Lecture4</module>
-        <module>Lecture5</module>
-        <module>Lecture6</module>
-        <module>Lecture7</module>
-        <module>Lecture8</module>
-        <module>Lecture9</module>
+        <module>Lecture02</module>
+        <module>Lecture03</module>
+        <module>Lecture04</module>
+        <module>Lecture05</module>
+        <module>Lecture06</module>
+        <module>Lecture07</module>
+        <module>Lecture08</module>
+        <module>Lecture09</module>
         <module>Lecture10</module>
     </modules>
 

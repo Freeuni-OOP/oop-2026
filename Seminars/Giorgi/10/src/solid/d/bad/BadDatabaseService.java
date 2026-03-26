@@ -2,6 +2,7 @@ package solid.d.bad;
 
 public class BadDatabaseService {
 
+    // low level
     private BadMySQLDatabase badMySQLDatabase;
 
     public BadDatabaseService(BadMySQLDatabase badMySQLDatabase) {

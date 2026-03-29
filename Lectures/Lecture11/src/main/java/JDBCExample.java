@@ -1,10 +1,10 @@
 import java.sql.*;
 
-public class Main {
+public class JDBCExample {
 
-    private static final String USER_NAME = "root";
-    private static final String PASSWORD = "root";
-    private static final String DB = "students_db";
+    private static final String USER_NAME = "root"; // replace with your user
+    private static final String PASSWORD = "root"; // replace with your password
+    private static final String DB = "students_db"; // replace with your db
 
     public static void main(String[] args) {
         try {

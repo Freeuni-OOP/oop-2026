@@ -43,9 +43,9 @@ CREATE TABLE student_courses
 
 # სტუდენტების ცხრილში ელემენტების დამატება
 insert into students (student_id, idnumber, firstName, lastName)
-values (1, '11111111111', 'shota', 'gvinepadze'),
+values (1, '11111111111', 'temur', 'arustashvili'),
        (2, '11111111112', 'giorgi', 'adikashvili'),
-       (3, '11111111113', 'giorgi', 'saghinadze');
+       (3, '11111111113', 'ana', 'sepiashvili');
 
 # კურსების ცხრილში ელემენტების დამატება
 INSERT INTO courses (course_id, course_name, course_credit, course_type)
@@ -61,8 +61,8 @@ insert into student_courses (student_id, course_id)
 select s.id, c.id
 from students s
 inner join courses c
-where (s.firstname = 'shota' and c.course_credit = 7)
-   or (s.firstname = 'shota' and c.course_credit = 4);
+where (s.firstname = 'temur' and c.course_credit = 7)
+   or (s.firstname = 'temur' and c.course_credit = 4);
 
 # ყველა იმ კურსის დაბრუნება რომელსაც გადის სტუდენტი აიდით 1
 select c.*

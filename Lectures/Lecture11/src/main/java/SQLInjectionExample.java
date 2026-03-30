@@ -14,11 +14,13 @@ public class SQLInjectionExample {
                     PASSWORD
             );
 
-            Statement statement = con.createStatement();
-
             // get student by first name
-            String firstName = "'giorgi' or true";
-            ResultSet result = statement.executeQuery("SELECT * FROM Students where firstname = " + firstName);
+            String firstName = "'giorgi' or true"; // sql injection risk
+            String statement = "SELECT * FROM Students where firstname = ?";
+            PreparedStatement preparedStatement = con.prepareStatement(statement);
+            preparedStatement.setString(1, firstName);
+
+            ResultSet result = preparedStatement.executeQuery();
 
             while (result.next()) {
                 System.out.println(result.getString("firstname")

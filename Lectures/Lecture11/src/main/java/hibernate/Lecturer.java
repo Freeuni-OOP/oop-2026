@@ -16,9 +16,9 @@ public class Lecturer {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    public String firstName;
+    private String firstName;
 
-    public String lastName;
+    private String lastName;
 
     public Lecturer(String firstName, String lastName) {
         this.firstName = firstName;

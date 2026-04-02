@@ -1,0 +1,25 @@
+plugins {
+    id 'java'
+}
+
+group = 'ge.freeuni'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.apache.commons:commons-dbcp2:2.14.0'
+    implementation 'mysql:mysql-connector-java:8.0.33'
+
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    // add h2 database for testing
+    testImplementation 'com.h2database:h2:2.2.220'
+}
+
+test {
+    useJUnitPlatform()
+}

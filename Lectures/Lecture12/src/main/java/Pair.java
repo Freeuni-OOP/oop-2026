@@ -21,10 +21,12 @@ public class Pair {
     }
 
     public void increaseStaticVariable() { // non-static
-        staticVariable++;
+        synchronized (Pair.class) {
+            staticVariable++;
+        }
     }
 
-    public static void staticIncrement() { // static
+    public synchronized static void staticIncrement() { // static
         staticVariable++;
     }
 }

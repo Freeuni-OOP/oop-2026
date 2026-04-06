@@ -32,7 +32,7 @@ public class Account {
         lock.lock();
 
         balance += amount;
-        newDeposit.signalAll();
+        newDeposit.signalAll(); // not signal!
 
         lock.unlock();
     }

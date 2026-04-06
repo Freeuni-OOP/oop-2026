@@ -20,7 +20,7 @@ public class Account {
         lock.lock();
 
         while (balance < amount) {
-            newDeposit.await();
+            newDeposit.await(); // 1. unlock(), 2. wait for signal 3. after signal - lock()
         }
 
         balance -= amount;

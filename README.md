@@ -21,7 +21,7 @@ push** ბრძანებებით კი თქვენი ცვლი�
 |---------------|------|-------------------------------------------------|------------------|
 | 01 - CodeCamp | 4    | [link](https://classroom.github.com/a/7vQx3IOX) | 22/03/2026       |
 | 02 - Tetris   | 8    | [link](https://classroom.github.com/a/o0k4_oG_) | 05/04/2026       |
-| 03 - Sudoku   | 8    | [link](https://classroom.github.com/a/1RNHqGtd) | 19/04/2026       |
-| 04 - Threads  | 8    | [link](https://classroom.github.com/a/ul3CrUrh) | 03/05/2026       |
-| 05 - Web      | 7    | [link](https://classroom.github.com/a/Ws9PYJiR) | 17/05/2026       |
+| 03 - Sudoku   | 8    | [link](https://classroom.github.com/a/1RNHqGtd) | 26/04/2026       |
+| 04 - Threads  | 8    | [link](https://classroom.github.com/a/ul3CrUrh) | 10/05/2026       |
+| 05 - Web      | 7    | [link](https://classroom.github.com/a/Ws9PYJiR) | 24/05/2026       |
 | Final Project | 30   | TODO                                            | TODO             |

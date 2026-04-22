@@ -35,6 +35,20 @@
 
 <h2>Hello <%= username %>!</h2>
 
+<%-- try GET instead--%>
+<form action="ssr/page.jsp" method="POST">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username"/>
+
+    <br><br>
+
+    <label for="password">Password: </label>
+    <input type="password" id="password" name="password"/>
+    <br><br>
+
+    <button type="submit">Login</button>
+</form>
+
 <a href="ssr/page.jsp">Go to page</a>
 
 </body>

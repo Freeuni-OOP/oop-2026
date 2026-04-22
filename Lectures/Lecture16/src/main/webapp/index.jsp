@@ -35,5 +35,7 @@
 
 <h2>Hello <%= username %>!</h2>
 
+<a href="ssr/page.jsp">Go to page</a>
+
 </body>
 </html>

@@ -49,3 +49,9 @@ button {
 #students-table tr, #students-table th, #students-table td {
     padding: 10px;
 }
+
+label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}

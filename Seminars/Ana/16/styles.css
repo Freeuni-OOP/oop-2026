@@ -1,0 +1,424 @@
+/* =============================================================
+   styles/index.css — Student Registry Stylesheet
+
+   HOW CSS WORKS:
+   selector { property: value; }
+
+   SELECTOR  — targets which HTML elements to style
+   PROPERTY  — what you are changing (color, size, layout...)
+   VALUE     — what you are setting it to
+
+   Rules are read top to bottom. If two rules target the same
+   element and property, the one further DOWN wins.
+   (This is the "Cascading" part of Cascading Style Sheets.)
+   ============================================================= */
+
+
+/* ─── 1. UNIVERSAL RESET ─────────────────────────────────────
+   Applied to EVERY element on the page.
+   Browsers have built-in default styles (margins, paddings).
+   We zero them out here so nothing surprises us later.
+   ─────────────────────────────────────────────────────────── */
+
+* {
+    /* * = universal selector. Targets every single element. */
+
+    box-sizing: border-box;
+    /*
+        Controls how width and height are calculated.
+
+        DEFAULT behaviour (content-box):
+        ┌──────────────────────────────────────┐
+        │ padding │ [   content   ] │ padding  │
+        └──────────────────────────────────────┘
+        total width = content width + padding + border
+        Problem: set width:300px + padding:50px = 400px actual width. Surprise!
+
+        border-box:
+        ┌──────────────────────────────────────┐
+        │ padding │ [content] │ padding        │
+        └──────────────────────────────────────┘
+        total width = exactly what you set (padding eats inward)
+        Set width:300px + padding:50px = still 300px. Predictable.
+
+        Applying this to * (everything) is standard practice in
+        almost every modern CSS project.
+    */
+
+    padding: 0;
+    /*
+        Removes all default INNER spacing from every element.
+        Padding = space INSIDE the border (between border and content).
+        Browsers add default padding to some elements — we clear it.
+    */
+
+    margin: 0;
+    /*
+        Removes all default OUTER spacing from every element.
+        Margin = space OUTSIDE the border (between this and other elements).
+        Browsers add default margin to h1, h2, p, body, etc. — we clear it.
+    */
+}
+
+
+/* ─── 2. BODY ────────────────────────────────────────────────
+   The visible page container.
+   Goal: center the form and table both horizontally AND vertically.
+   ─────────────────────────────────────────────────────────── */
+
+body {
+    width: 100%;
+    /*
+        Body fills the full width of the browser window.
+        % = percentage of the PARENT element's size.
+        Body's parent is the browser window, so 100% = full width.
+    */
+
+    height: 100vh;
+    /*
+        vh = viewport height. 1vh = 1% of the visible window height.
+        100vh = the full height of the visible browser window.
+
+        WHY THIS IS NEEDED:
+        Without it, body is only as tall as its content.
+        If content is short, body might be 200px tall in a 900px window.
+        Centering vertically inside 200px ≠ centering in the window.
+        Setting height:100vh makes body fill the whole window first.
+    */
+
+    display: flex;
+    /*
+        Activates FLEXBOX layout on the body.
+        The body's direct children (form and table) become "flex items".
+        Flexbox gives us powerful tools to position them.
+
+        Without flexbox, elements stack in normal document flow
+        (block elements top to bottom, no easy centering).
+    */
+
+    flex-direction: column;
+    /*
+        Sets the MAIN AXIS direction for flex items.
+
+        row (default) = items line up LEFT → RIGHT  (horizontal)
+        column        = items line up TOP → BOTTOM   (vertical)
+
+        We use column because we want the form ABOVE the table.
+
+        This also flips what justify-content and align-content do:
+
+        flex-direction: column
+        ┌─────────────────────────────┐
+        │         ↑                   │
+        │  justify-content (vertical) │
+        │         ↓                   │
+        │  ← align-content →          │  (horizontal)
+        └─────────────────────────────┘
+    */
+
+    justify-content: center;
+    /*
+        Centers items along the MAIN AXIS.
+        Since flex-direction is column, main axis = vertical.
+        This centers the form and table top-to-bottom in the window.
+    */
+
+    align-content: center;
+    /*
+        Centers items along the CROSS AXIS (perpendicular to main axis).
+        Since main axis is vertical, cross axis = horizontal.
+        This centers the form and table left-to-right in the window.
+
+        NOTE: align-content works when flex-wrap:wrap is set AND
+        there are multiple lines of flex items. For single items,
+        align-items:center is more commonly used.
+    */
+
+    flex-wrap: wrap;
+    /*
+        What happens when flex items don't all fit on one line.
+
+        nowrap (default): items shrink to fit, can overflow
+        wrap:             items move to the next line if needed
+
+        We set wrap here to support align-content (which requires
+        wrapping to be enabled) and to handle small screen sizes.
+    */
+}
+
+
+/* ─── 3. FORM ────────────────────────────────────────────────
+   The card-like container holding labels, inputs and button.
+   ─────────────────────────────────────────────────────────── */
+
+#students-form {
+    /*
+        # = ID selector. Targets ONE element with id="students-form".
+        IDs are unique — only one element per page should have a given id.
+        ID selectors are more specific than class (.) or element selectors.
+    */
+
+    width: 300px;
+    /*
+        Fixed width of 300px.
+        Because box-sizing:border-box is set globally, the padding below
+        is included in this 300px — it does not add to it.
+    */
+
+    height: 100px;
+    /*
+        Fixed height of 100px.
+        In practice this may be too short once padding is applied.
+        Consider removing height and letting content determine it,
+        or increasing this value significantly (e.g. 200px).
+    */
+
+    display: flex;
+    /* Makes the form a flex container so we can control child layout. */
+
+    flex-direction: column;
+    /* Stack children (labels, button) vertically, top to bottom. */
+
+    justify-content: center;
+    /*
+        Centers children vertically inside the form.
+        Main axis = vertical (because flex-direction is column).
+    */
+
+    gap: 4px;
+    /*
+        Adds 4px of space BETWEEN each flex child.
+        Much cleaner than adding margin-bottom to each child individually.
+        gap only appears BETWEEN items — not before the first or after the last.
+    */
+
+    border: 1px solid blue;
+    /*
+        Shorthand for drawing a border around the element.
+        Format: border: [width] [style] [color]
+        1px   = border thickness
+        solid = line style (other options: dashed, dotted, double, none)
+        blue  = color (can also use hex #0000ff or rgb(0,0,255))
+    */
+
+    border-radius: 8px;
+    /*
+        Rounds all four corners by 8px.
+        Higher value = rounder corners.
+        50% on a square element = circle.
+        Can target individual corners:
+          border-radius: top-left top-right bottom-right bottom-left
+          border-radius: 8px 8px 0 0  (only rounds top corners)
+    */
+
+    padding: 50px;
+    /*
+        50px of inner space on ALL four sides.
+        Shorthand values:
+          padding: 10px            = all four sides
+          padding: 10px 20px       = top+bottom 10px, left+right 20px
+          padding: 10px 20px 5px   = top, left+right, bottom
+          padding: 10px 20px 5px 15px = top, right, bottom, left (clockwise)
+    */
+}
+
+
+/* ─── 4. INPUTS ──────────────────────────────────────────────
+   Styles all <input> elements on the page.
+   ─────────────────────────────────────────────────────────── */
+
+input {
+    /* Element selector — targets every <input> tag on the page. */
+
+    width: 100%;
+    /*
+        Makes each input fill the full width of its parent container.
+        Parent = the <label> element, which is inside the form.
+        So inputs stretch to fill the available form width.
+    */
+
+    padding: 4px;
+    /*
+        Small internal spacing so typed text doesn't press right
+        against the input border. Makes it easier to read.
+    */
+
+    border-radius: 4px;
+    /*
+        Slightly rounds the input corners.
+        Smaller than the form's 8px to match but feel lighter.
+    */
+
+    /* NOTE: No border property here.
+       Inputs keep their default browser border (usually a grey outline).
+       To control it yourself, add:
+       border: 1px solid #ccc;
+       And to highlight on focus (when clicked):
+       Add in a separate rule:
+       input:focus { border-color: blue; outline: none; }
+    */
+}
+
+
+/* ─── 5. BUTTON ──────────────────────────────────────────────
+   Styles all <button> elements on the page.
+   ─────────────────────────────────────────────────────────── */
+
+button {
+    width: 100px;
+    /*
+        Fixed width. Unlike inputs, the button doesn't stretch.
+        It stays 100px wide regardless of the form size.
+    */
+
+    background: red;
+    /*
+        Sets the BACKGROUND COLOR of the button.
+        `background` is a shorthand that can also set:
+          background-image, background-size, background-repeat, etc.
+        For just a color, `background-color: blue` also works.
+    */
+
+    color: white;
+    /*
+        `color` in CSS ALWAYS means TEXT color — never background.
+        Without this, text would be black on a blue background.
+        White text on blue = readable contrast.
+    */
+
+    border-radius: 4px;
+    /* Rounds corners to match the input fields visually. */
+
+    padding: 4px;
+    /* Small inner spacing so button text has breathing room. */
+
+    /* NOTE: No border:none here.
+       The button keeps its default browser border.
+       Add `border: none;` to remove it for a cleaner look.
+       Also consider adding:
+         cursor: pointer;   ← shows hand cursor on hover
+       And a hover state:
+         button:hover { background: darkblue; }
+    */
+}
+
+
+/* ─── 6. TABLE ───────────────────────────────────────────────
+   Styles the results table.
+   ─────────────────────────────────────────────────────────── */
+
+#students-table {
+    /* ID selector — targets the element with id="students-table". */
+
+    text-align: center;
+    /*
+        Centers text horizontally inside the table.
+        This property INHERITS — it flows down to all child elements
+        automatically (<thead>, <tbody>, <tr>, <th>, <td>).
+        So every cell's text is centered without targeting each one.
+    */
+
+    border-collapse: collapse;
+    /*
+        Controls how borders between cells are rendered.
+
+        separate (default):           collapse:
+        ┌────┐ ┌────┐                ┌────┬────┐
+        │    │ │    │    →            │    │    │
+        └────┘ └────┘                └────┴────┘
+        (double borders, visible gap) (single merged border)
+
+        collapse merges adjacent borders into one clean line.
+        Almost always what you want for a normal-looking table.
+    */
+
+    border: 1px dotted black;
+    /*
+        Draws a border around the entire table.
+        dotted = a dotted line style (vs solid, dashed, double).
+        This only affects the outer table border.
+        Cell borders are controlled separately on <td> and <th>.
+    */
+}
+
+
+/* ─── 7. TABLE ROWS, HEADERS AND CELLS ──────────────────────
+   Applies padding to every row, header cell and data cell.
+   ─────────────────────────────────────────────────────────── */
+
+#students-table tr, #students-table th, #students-table td {
+    /*
+        Three selectors separated by commas.
+        Comma = apply this rule to ALL of these selectors.
+        Same as writing three separate identical rules.
+
+        #students-table tr  — every <tr> inside this specific table
+        #students-table th  — every <th> inside this specific table
+        #students-table td  — every <td> inside this specific table
+
+        We scope them to #students-table (not just tr, th, td globally)
+        so these styles don't accidentally affect other tables
+        that might be added to the page later.
+    */
+
+    padding: 10px;
+    /*
+        Adds 10px of inner space on all four sides of each cell.
+        This is what makes a table feel readable — without it,
+        text is cramped right against the cell borders.
+
+        NOTE: padding on <tr> has no visible effect.
+        <tr> is just a row wrapper — it has no box of its own.
+        Only <th> and <td> (the actual cells) display padding.
+        The `tr` part here is harmless but unnecessary.
+    */
+}
+
+
+/* ─── 8. LABELS ──────────────────────────────────────────────
+   Makes label text and its input sit neatly side by side.
+   ─────────────────────────────────────────────────────────── */
+
+label {
+    display: inline-flex;
+    /*
+        inline-flex = flex container that behaves inline.
+
+        display: flex        — takes the full line width (like a block)
+        display: inline-flex — only as wide as its content (like text)
+
+        We use inline-flex so labels sit naturally in the flow
+        without forcing a full-width block.
+
+        Making the label a flex container lets us control how the
+        label text and the <input> (its two children) sit next to each other.
+    */
+
+    align-items: center;
+    /*
+        Aligns flex children along the CROSS AXIS.
+        Since flex-direction defaults to row here (horizontal),
+        the cross axis is vertical.
+
+        center = children are aligned to the middle vertically.
+
+        WHY THIS MATTERS:
+        Without it, the label text and input may misalign:
+
+        align-items: stretch (default):    align-items: center:
+        First name: [__________________]   First name: [________]
+                    ← input is taller →    ← both vertically centered →
+
+        With center, text and input sit neatly on the same visual line.
+    */
+
+    gap: 8px;
+    /*
+        8px of space between the label text ("First name:")
+        and the <input> field next to it.
+
+        Without gap:           With gap: 8px:
+        First name:[_____]     First name: [_____]
+        (cramped)              (readable spacing)
+    */
+}

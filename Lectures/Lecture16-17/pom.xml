@@ -8,9 +8,9 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>Lecture16</artifactId>
+    <artifactId>Lecture16-17</artifactId>
     <packaging>war</packaging>
-    <name>Lecture16 Maven Webapp</name>
+    <name>Lecture16-17 Maven Webapp</name>
     <url>http://maven.apache.org</url>
 
     <dependencies>

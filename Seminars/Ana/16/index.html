@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<!--
+    <!DOCTYPE html>
+    Not a tag — a DECLARATION.
+    Tells the browser: "This is an HTML5 document."
+    Must always be the very first line. No exceptions.
+-->
+
+<html lang="en">
+<!--
+    <html> — The ROOT element. Every other element lives inside it.
+    The browser builds its entire "family tree" of elements starting here.
+    lang="en" — Tells browsers and screen readers the language is English.
+-->
+
+<head>
+    <!--
+        <head> — The INVISIBLE section.
+        Nothing in here is shown on the page.
+        Used for: page title, loading CSS/JS files, character encoding,
+        and other metadata (info ABOUT the page).
+    -->
+
+    <meta charset="UTF-8">
+    <!--
+        <meta> — Self-closing tag (no </meta> needed).
+        charset="UTF-8" — Sets the character encoding.
+        UTF-8 supports every language: Georgian (ქართული), Arabic, Chinese,
+        emojis, symbols, etc.
+        Without this, special characters may appear as: broken garbled text.
+    -->
+
+    <title>Students Form</title>
+    <!--
+        <title> — The text shown in the browser TAB.
+        Also used by Google as the headline in search results.
+        Should be short and descriptive.
+    -->
+
+    <link href="styles.css" rel="stylesheet"/>
+    <!--
+        <link> — Loads an external file. Self-closing.
+        rel="stylesheet" — Tells the browser this is a CSS file.
+        href="styles/index.css" — Path to the CSS file.
+        "styles/index.css" means: inside a folder called "styles",
+        find the file "index.css".
+    -->
+
+    <!--
+        FIX: <script> was here in the original — REMOVED.
+
+        WHY IT WAS WRONG:
+        The browser reads HTML top to bottom.
+        If the script loads in <head>, it runs BEFORE the <body> exists.
+        JavaScript then tries to find "students-table" but the table
+        hasn't been created yet so it gets NULL and crashes.
+
+        THE FIX:
+        Move <script> to the very bottom of <body>.
+        By that point, all HTML elements exist and JS can safely find them.
+    -->
+
+</head>
+
+<body>
+<!--
+    <body> — The VISIBLE section.
+    Everything the user actually sees on the page goes here.
+    There is only ever ONE <body> per page.
+-->
+
+<form id="students-form">
+    <!--
+        <form> — A smart container for collecting user input.
+        Unlike a plain <div>, it has built-in browser behavior:
+          - Pressing ENTER in any input field triggers submission
+          - Can validate required fields automatically
+          - Can send data to a server
+
+        id="students-form" — Unique identifier.
+        JavaScript uses this to find the element:
+        document.getElementById("students-form")
+    -->
+
+    <label for="first-name">
+        <!--
+            <label> — Text description for an input field.
+
+            for="first-name" — LINKS this label to the input
+            whose id="first-name".
+
+            WHY THIS MATTERS:
+            1. Clicking the label text focuses the input field.
+               (Better usability — larger click target)
+            2. Screen readers read the label aloud when the
+               input is focused. (Accessibility)
+
+            The <input> is nested INSIDE the <label> here.
+            This is a valid alternative way to link them —
+            nesting works even without the "for" attribute.
+            But we keep "for" anyway for clarity and consistency.
+        -->
+        First name: <input id="first-name" type="text"/>
+        <!--
+            <input> — A text field. Self-closing (no </input>).
+            id="first-name" — Matches the label's for="first-name".
+                              Also used by JavaScript to read the .value.
+            type="text" — Explicitly set (was missing in the original).
+                          The default is also "text" but being explicit
+                          is better practice.
+                          Other types: email, number, password, date...
+        -->
+    </label>
+
+    <label for="last-name">
+        <!--
+            The original second label had no "for" attribute,
+            making it inconsistent with the first label.
+            Always link labels to inputs for accessibility.
+        -->
+        Last name: <input id="last-name" type="text"/>
+    </label>
+
+    <button onclick="addStudent()" type="button">Submit</button>
+    <!--
+        <button> — A clickable button.
+
+        type="button" — IMPORTANT.
+        Inside a <form>, the DEFAULT button type is "submit".
+        A "submit" button reloads the entire page when clicked.
+        type="button" prevents that — it just runs our JS function.
+
+        onclick="addStudent()" — An INLINE EVENT HANDLER.
+        When the button is clicked, the browser calls addStudent()
+        from our JavaScript file.
+        This works, but see new-index.js for a cleaner alternative.
+    -->
+
+</form>
+
+<table id="students-table">
+    <!--
+        <table> — Creates an HTML table.
+        id="students-table" — JavaScript finds this to add new rows.
+    -->
+
+    <thead>
+    <!--
+        <thead> — Wraps the HEADER row of the table.
+
+        WHY THIS MATTERS:
+        Without <thead>, when JavaScript calls table.insertRow()
+        it may add rows ABOVE the header, pushing it down.
+        With <thead> and <tbody> separated, the header always
+        stays at the top.
+
+        Also helps screen readers distinguish headers from data.
+    -->
+    <tr>
+        <!--
+            <tr> — Table Row.
+            Every row in a table (header or data) is a <tr>.
+        -->
+
+        <th>First name</th>
+        <th>Last name</th>
+        <!--
+            <th> — Table HEADER cell.
+            <td> — Table DATA cell.
+
+            The difference:
+            - <th> is bold and centered by default
+            - <th> is semantically correct for column headers
+            - Screen readers announce <th> as a column header
+
+            Use <th> in header rows, <td> in data rows. Always.
+        -->
+    </tr>
+    </thead>
+
+    <tbody id="students-tbody">
+    <!--
+        <tbody> — Wraps the DATA rows of the table.
+
+        id="students-tbody" — JavaScript targets THIS specifically
+        when inserting new rows, so the header row is never touched.
+
+        Initially empty — JavaScript will add <tr> rows here
+        every time the user submits the form.
+    -->
+    </tbody>
+
+</table>
+
+<script src="new-index.js"></script>
+<!--
+    FIX: Moved from <head> to the BOTTOM of <body>.
+
+    <script> — Loads and runs a JavaScript file.
+    src="new-index.js" — The JS file in the same folder as this HTML.
+
+    WHY AT THE BOTTOM:
+    By the time the browser reaches this line, all HTML above has
+    already been read and every element exists in the DOM.
+    JavaScript can now safely find "students-tbody", "first-name" etc.
+    without getting null back.
+-->
+
+</body>
+</html>

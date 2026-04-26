@@ -29,7 +29,7 @@
     </dependencies>
 
     <build>
-        <finalName>Lecture16</finalName>
+        <finalName>Lecture16-17</finalName>
 
         <plugins>
             <plugin>

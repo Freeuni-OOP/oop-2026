@@ -1,0 +1,151 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 48px 20px;
+    background: linear-gradient(135deg, #e8f0fe 0%, #f4f6f9 60%, #fce4ec 100%);
+    font-family: 'Segoe UI', Arial, sans-serif;
+    color: #333;
+}
+
+/* ── Form card ─────────────────────────────────────────── */
+#students-form {
+    width: 360px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    border: none;
+    border-radius: 16px;
+    padding: 32px;
+    background: #fff;
+    box-shadow: 0 8px 32px rgba(74, 144, 217, 0.15), 0 2px 8px rgba(0, 0, 0, 0.06);
+    margin-bottom: 40px;
+    position: relative;
+    overflow: hidden;
+}
+
+#students-form::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #4a90d9, #7b5ea7);
+}
+
+#students-form h2 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #222;
+    letter-spacing: 0.3px;
+}
+
+/* ── Labels & Inputs ────────────────────────────────────── */
+label {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #555;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+input {
+    width: 100%;
+    padding: 10px 14px;
+    border-radius: 8px;
+    border: 1.5px solid #dde3ec;
+    font-size: 0.95rem;
+    background: #f8fafd;
+    color: #333;
+    transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+    font-family: inherit;
+}
+
+input:focus {
+    outline: none;
+    border-color: #4a90d9;
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(74, 144, 217, 0.15);
+}
+
+/* ── Button ─────────────────────────────────────────────── */
+button {
+    width: 100%;
+    background: linear-gradient(90deg, #4a90d9, #7b5ea7);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 11px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    letter-spacing: 0.5px;
+    transition: opacity 0.2s, transform 0.15s, box-shadow 0.2s;
+    box-shadow: 0 4px 12px rgba(74, 144, 217, 0.3);
+    font-family: inherit;
+    margin-top: 4px;
+}
+
+button:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(74, 144, 217, 0.4);
+}
+
+button:active {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* ── Table ──────────────────────────────────────────────── */
+#students-table {
+    width: 360px;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(74, 144, 217, 0.12), 0 2px 8px rgba(0, 0, 0, 0.05);
+    text-align: left;
+}
+
+#students-table th {
+    background: linear-gradient(90deg, #4a90d9, #7b5ea7);
+    color: #fff;
+    padding: 14px 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+}
+
+#students-table td {
+    padding: 12px 20px;
+    font-size: 0.92rem;
+    color: #444;
+    border-bottom: 1px solid #f0f3f8;
+}
+
+#students-table tr:last-child td {
+    border-bottom: none;
+}
+
+#students-table tbody tr:nth-child(even) td {
+    background: #f8fafd;
+}
+
+#students-table tbody tr:hover td {
+    background: #eef4fd;
+    transition: background 0.15s;
+}

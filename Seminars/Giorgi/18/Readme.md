@@ -29,3 +29,36 @@ Servlets dependency
     <scope>provided</scope>
 </dependency>
 ```
+--------------------
+
+## Maven Archetype - ინტელიჯეიდან web მოდულის შექმნა
+
+1. **New → Module**
+2. **Generators → Maven Archetype**
+3. შეავსეთ დეტალები:
+    - **Name:** მაგალითად `my-webapp`
+    - **Location:** მოდულის ფოლდერი
+    - **JDK:** მაგალითად 1.8
+4. **Archetype**-ში აირჩიეთ:
+   ```
+   maven-archetype-webapp
+   ```
+
+> 💡 Create-ზე დაჭერით ინტელიჯეი შეგიქმნით default სტრუქტურას და გადმოწერს default დიფენდენსიებს.
+
+სტანდარტული მეივენი სტრუქტურა ასეთი გენერაციისას:
+
+```
+my-webapp/
+├── pom.xml
+└── src/
+    └── main/
+        ├── java/
+        ├── resources/
+        └── webapp/
+            ├── index.jsp
+            └── WEB-INF/
+                └── web.xml
+```
+
+გენერაციის შემდეგ, გახსენით `pom.xml` და დაამატეთ საჭირო დიფენდენსიები და ფლაგინები როგორც ზემოთაა.

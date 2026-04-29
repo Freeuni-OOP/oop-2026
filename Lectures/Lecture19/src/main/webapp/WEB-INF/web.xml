@@ -1,0 +1,37 @@
+<web-app>
+
+    <context-param>
+        <param-name>jdbcUrl</param-name>
+        <param-value>jdbc:mysql://localhost:3306/users_schema</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>dbUser</param-name>
+        <param-value>root</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>dbPassword</param-name>
+        <param-value>root</param-value>
+    </context-param>
+
+    <listener>
+        <listener-class>ge.edu.freeuni.listener.AppListener</listener-class>
+    </listener>
+
+    <servlet>
+        <servlet-name>ControllerServlet</servlet-name>
+        <servlet-class>ge.edu.freeuni.controller.ControllerServlet</servlet-class>
+
+        <init-param>
+            <param-name>adminEmail</param-name>
+            <param-value>admin@freeuni.edu.ge</param-value>
+        </init-param>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ControllerServlet</servlet-name>
+        <url-pattern>/submit</url-pattern>
+    </servlet-mapping>
+
+</web-app>

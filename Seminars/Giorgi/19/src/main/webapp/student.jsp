@@ -2,6 +2,7 @@
 <%@ page import="dao.StudentDAO" %>
 <%@ page import="java.util.List" %>
 <%@ page import="bean.Student" %>
+<%@ page import="static util.Constants.USER_NAME_COOKIE" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <!DOCTYPE html>
@@ -14,6 +15,18 @@
 
 <body>
 
+<%
+    Cookie[] cookies = request.getCookies();
+    Cookie userCookie = null;
+    for (Cookie cookie : cookies) {
+        if (cookie.getName().equals(USER_NAME_COOKIE)) {
+            userCookie = cookie;
+            break;
+        }
+    }
+
+    if (userCookie == null) {
+%>
 <form id="students-form" method="POST" action="/student">
 
     <label for="first-name">
@@ -48,6 +61,17 @@
 
     <% } %>
 </table>
+
+<%
+} else {
+%>
+
+<h2>Hello <%= userCookie.getValue()%>
+</h2>
+
+<%
+    }
+%>
 
 </body>
 

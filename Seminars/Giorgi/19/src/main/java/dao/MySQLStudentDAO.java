@@ -1,11 +1,11 @@
 package dao;
 
 import bean.Student;
+import filter.Filter;
 
 import javax.sql.DataSource;
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class MySQLStudentDAO implements StudentDAO {
@@ -59,6 +59,25 @@ public class MySQLStudentDAO implements StudentDAO {
             }
 
             return students;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public List<Student> filterStudents(Filter filter) {
+        try (Connection connection = dataSource.getConnection()) {
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("SELECT first_name, last_name from student WHERE " + filter.toString());
+
+            List<Student> result = new ArrayList<>();
+
+            while (resultSet.next()) {
+                result.add(new Student(
+                        resultSet.getString("first_name"),
+                        resultSet.getString("last_name")));
+            }
+
+            return result;
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

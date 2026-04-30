@@ -2,6 +2,7 @@ package servlets;
 
 import bean.Student;
 import dao.StudentDAO;
+import filter.*;
 import util.Constants;
 
 import javax.servlet.ServletContext;
@@ -20,6 +21,9 @@ public class StudentServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        Filter filter = FilterBuilder.build(req); // generate the filter from the request
+        req.setAttribute("filter", filter);
+
         req.getRequestDispatcher("student.jsp").forward(req, resp);
     }
 

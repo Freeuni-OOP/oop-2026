@@ -1,6 +1,7 @@
 package dao;
 
 import bean.Student;
+import filter.Filter;
 
 import java.util.Collections;
 import java.util.List;
@@ -18,5 +19,10 @@ public class ListStudentDAO implements StudentDAO {
     @Override
     public List<Student> getAllStudents() {
         return Collections.unmodifiableList(students);
+    }
+
+    @Override
+    public List<Student> filterStudents(Filter filter) {
+        return Collections.emptyList();
     }
 }

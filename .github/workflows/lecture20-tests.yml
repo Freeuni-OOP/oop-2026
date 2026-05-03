@@ -1,11 +1,6 @@
 name: Lecture20 Tests
 
 on:
-  push:
-    paths:
-      - "Lectures/Lecture20/**"
-      - "Lectures/pom.xml"
-      - ".github/workflows/lecture20-tests.yml"
   pull_request:
     paths:
       - "Lectures/Lecture20/**"

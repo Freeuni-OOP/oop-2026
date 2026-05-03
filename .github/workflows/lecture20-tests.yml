@@ -1,0 +1,32 @@
+name: Lecture20 Tests
+
+on:
+  push:
+    paths:
+      - "Lectures/Lecture20/**"
+      - "Lectures/pom.xml"
+      - ".github/workflows/lecture20-tests.yml"
+  pull_request:
+    paths:
+      - "Lectures/Lecture20/**"
+      - "Lectures/pom.xml"
+      - ".github/workflows/lecture20-tests.yml"
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 8
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "8"
+          cache: maven
+
+      - name: Run Lecture20 tests
+        run: mvn -B -f Lectures/pom.xml -pl Lecture20 -am test
+

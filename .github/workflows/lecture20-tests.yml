@@ -30,7 +30,7 @@ jobs:
       - name: Run Maven clean install
         run: |
           cd Lectures/Lecture20
-          mvn -B clean install
+          mvn -B clean install -DskipTests
 
   test:
     runs-on: ubuntu-latest

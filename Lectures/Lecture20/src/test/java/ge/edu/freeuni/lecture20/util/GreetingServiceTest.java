@@ -19,7 +19,7 @@ public class GreetingServiceTest {
     public void testBuildGreetingReturnsGuestForBlankName() {
         String greeting = greetingService.buildGreeting("   ");
 
-        assertEquals("Hello, Guest!", greeting);
+        assertEquals("Hello, Guest!!", greeting);
     }
 
     @Test

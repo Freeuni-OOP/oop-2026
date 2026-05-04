@@ -1,6 +1,6 @@
+package dao;
+
 import bean.Student;
-import dao.ListStudentDAO;
-import dao.StudentDAO;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

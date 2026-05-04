@@ -3,5 +3,6 @@
 * Git cheat sheet - https://education.github.com/git-cheat-sheet-education.pdf
 * Best practices - https://www.freecodecamp.org/news/how-to-use-git-best-practices-for-beginners/
 * Actions workflow syntax - https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions
+* Docker - https://docs.docker.com/get-started/docker-overview/
 
-მე-18 სემინარს დაუმატეთ CI და Docker support.
+მე-18 სემინარს დაუმატეთ CI (ავტომატური workflow იუნით ტესტებისთვის) და Docker support.

@@ -14,7 +14,7 @@
 
 <body>
 
-<form id="students-form" method="POST" action="/student">
+<form id="students-form" method="POST" action="<%= request.getContextPath() %>/student">
 
     <label for="first-name">
         First name: <input id="first-name" name="first-name"/>

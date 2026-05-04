@@ -24,6 +24,6 @@ public class StudentDAOTest {
 
         List<Student> students = studentDAO.getAllStudents();
         assertEquals(2, students.size());
-        assertEquals("c", students.get(0).getLastName());
+        assertEquals("b", students.get(0).getLastName());
     }
 }

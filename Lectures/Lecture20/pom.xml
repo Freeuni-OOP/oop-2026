@@ -1,0 +1,24 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>ge.edu.freeuni</groupId>
+        <artifactId>Lectures</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <artifactId>Lecture20</artifactId>
+    <packaging>war</packaging>
+    <name>Lecture20 Maven Webapp</name>
+    <url>http://maven.apache.org</url>
+    <dependencies>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>5.14.0</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+    <build>
+        <finalName>Lecture20</finalName>
+    </build>
+</project>

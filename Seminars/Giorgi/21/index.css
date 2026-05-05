@@ -1,0 +1,131 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-1: #0f172a;
+  --bg-2: #1e293b;
+  --surface: rgba(15, 23, 42, 0.72);
+  --surface-border: rgba(148, 163, 184, 0.24);
+  --text: #e2e8f0;
+  --muted: #94a3b8;
+  --accent: #38bdf8;
+  --accent-strong: #0ea5e9;
+  --shadow: 0 20px 35px rgba(2, 8, 23, 0.35);
+  --radius-xl: 20px;
+  --radius-lg: 14px;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  padding: 3rem 1.25rem;
+  display: grid;
+  justify-items: center;
+  align-content: start;
+  gap: 1.25rem;
+  font-family: "Inter", "Segoe UI", Roboto, Arial, sans-serif;
+  color: var(--text);
+  background:
+	radial-gradient(circle at 15% 20%, rgba(56, 189, 248, 0.24), transparent 45%),
+	radial-gradient(circle at 80% 0%, rgba(99, 102, 241, 0.22), transparent 38%),
+	linear-gradient(135deg, var(--bg-1), var(--bg-2));
+}
+
+#btn {
+  appearance: none;
+  border: 0;
+  border-radius: 999px;
+  padding: 0.85rem 1.6rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #082f49;
+  background: linear-gradient(135deg, #7dd3fc, #38bdf8);
+  cursor: pointer;
+  box-shadow:
+	0 10px 20px rgba(14, 165, 233, 0.35),
+	inset 0 1px 0 rgba(255, 255, 255, 0.45);
+  transition: transform 0.16s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+#btn:hover {
+  transform: translateY(-2px);
+  box-shadow:
+	0 14px 26px rgba(14, 165, 233, 0.45),
+	inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  filter: saturate(1.08);
+}
+
+#btn:active {
+  transform: translateY(0);
+}
+
+#btn:focus-visible {
+  outline: 3px solid rgba(125, 211, 252, 0.9);
+  outline-offset: 3px;
+}
+
+#animals {
+  width: min(760px, 100%);
+  min-height: 220px;
+  padding: 1.4rem;
+  border: 1px solid var(--surface-border);
+  border-radius: var(--radius-xl);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(8px);
+}
+
+/* Style common element types that may be injected dynamically. */
+#animals > * {
+  margin: 0;
+  color: var(--text);
+  line-height: 1.5;
+}
+
+#animals > * + * {
+  margin-top: 0.75rem;
+}
+
+#animals h1,
+#animals h2,
+#animals h3,
+#animals strong {
+  color: #f8fafc;
+}
+
+#animals p,
+#animals li,
+#animals span,
+#animals small {
+  color: var(--muted);
+}
+
+#animals ul,
+#animals ol {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+@media (max-width: 640px) {
+  body {
+	padding: 2rem 0.9rem;
+  }
+
+  #btn {
+	width: 100%;
+	max-width: 320px;
+  }
+
+  #animals {
+	min-height: 180px;
+	padding: 1rem;
+	border-radius: var(--radius-lg);
+  }
+}
+

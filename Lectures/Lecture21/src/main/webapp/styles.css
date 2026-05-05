@@ -1,0 +1,100 @@
+/* Page foundation: centered card layout with soft gradient background. */
+:root {
+    --bg-1: #0f172a;
+    --bg-2: #1e293b;
+    --card: #ffffff;
+    --text: #0f172a;
+    --muted: #475569;
+    --accent: #2563eb;
+    --accent-hover: #1d4ed8;
+    --ring: rgba(37, 99, 235, 0.3);
+    --surface: #f8fafc;
+    --border: #e2e8f0;
+}
+
+/* Resets default spacing so layout is consistent across browsers. */
+* {
+    box-sizing: border-box;
+}
+
+/* Full-page background and readable typography. */
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: Inter, Segoe UI, Roboto, Arial, sans-serif;
+    color: var(--text);
+    background:
+        radial-gradient(1200px 600px at 10% -10%, rgba(56, 189, 248, 0.18), transparent),
+        radial-gradient(900px 500px at 90% 110%, rgba(99, 102, 241, 0.22), transparent),
+        linear-gradient(160deg, var(--bg-1), var(--bg-2));
+    display: grid;
+    place-items: center;
+    padding: 24px;
+}
+
+/* Main content container styled as a modern glass-like card. */
+body > h2,
+body > button,
+body > pre {
+    width: min(860px, 100%);
+}
+
+/* Title styling for hierarchy and contrast. */
+h2 {
+    margin: 0 0 18px;
+    color: #e2e8f0;
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    font-weight: 700;
+    letter-spacing: 0.2px;
+}
+
+/* Primary action button with hover and active feedback. */
+button {
+    border: 0;
+    border-radius: 12px;
+    padding: 12px 18px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #ffffff;
+    background: linear-gradient(135deg, var(--accent), #3b82f6);
+    cursor: pointer;
+    box-shadow: 0 10px 22px -12px var(--ring);
+    transition: transform 120ms ease, box-shadow 180ms ease, background 180ms ease;
+}
+
+button:hover {
+    background: linear-gradient(135deg, var(--accent-hover), var(--accent));
+    transform: translateY(-1px);
+    box-shadow: 0 14px 26px -14px var(--ring);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+button:focus-visible {
+    outline: 3px solid var(--ring);
+    outline-offset: 2px;
+}
+
+/* Output panel designed for JSON text readability. */
+pre {
+    margin: 16px 0 0;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 16px;
+    background: var(--surface);
+    color: var(--muted);
+    font-size: 0.92rem;
+    line-height: 1.5;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    min-height: 220px;
+    box-shadow: 0 14px 30px -22px rgba(15, 23, 42, 0.55);
+}
+
+/* Optional polished selection colors in output area. */
+pre::selection {
+    background: rgba(59, 130, 246, 0.25);
+}
+

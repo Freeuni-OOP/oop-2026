@@ -9,7 +9,8 @@ console.log("4");
 
 //---------------------------------------------------------------
 
-// AJAX fetch API
+// AJAX (https://www.w3schools.com/js/js_ajax_intro.asp)
+
 function loadUsers() {
     fetch('/controller')
         .then(response => response.json())

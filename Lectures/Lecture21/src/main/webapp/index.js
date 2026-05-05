@@ -12,23 +12,27 @@ console.log("4");
 // AJAX (https://www.w3schools.com/js/js_ajax_intro.asp)
 
 function loadUsers() {
+    const $result = $('#result');
+    const $status = $('#status');
+
     fetch('/controller')
         .then(response => response.json())
         .then(data => {
-            document.getElementById('result').textContent = JSON.stringify(data, null, 2);
-            document.getElementById('status').textContent = '';
+            $result.text(JSON.stringify(data, null, 2));
+            $status.text('');
         })
         .catch(error => {
-            document.getElementById('result').textContent = 'Error: ' + error;
+            $result.text('Error: ' + error);
         });
 }
 
 function addUser() {
-    const input = document.getElementById('userName');
-    const name = input.value.trim();
+    const $input = $('#userName');
+    const $status = $('#status');
+    const name = String($input.val() || '').trim();
 
     if (!name) {
-        document.getElementById('status').textContent = 'Please enter a user name.';
+        $status.text('Please enter a user name.');
         return;
     }
 
@@ -42,15 +46,15 @@ function addUser() {
         .then(response => response.json())
         .then(data => {
             if (data.error) {
-                document.getElementById('status').textContent = 'Error: ' + data.error;
+                $status.text('Error: ' + data.error);
                 return;
             }
 
-            input.value = '';
-            document.getElementById('status').textContent = 'User added: ' + data.name;
+            $input.val('');
+            $status.text('User added: ' + data.name);
             loadUsers();
         })
         .catch(error => {
-            document.getElementById('status').textContent = 'Error: ' + error;
+            $status.text('Error: ' + error);
         });
 }

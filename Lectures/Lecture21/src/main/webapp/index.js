@@ -1,5 +1,5 @@
 import hello from "./prototypes.js";
-import animal from "./lion.json" with { type: "json" };
+import animal from "./lion.json" with {type: "json"};
 
 //------------------ check execution order-----------------------
 console.log("1");
@@ -9,6 +9,17 @@ setTimeout(() => console.log("2"), 0);
 Promise.resolve().then(() => console.log("3"));
 
 console.log("4");
+
+function logFive() {
+    console.log("5");
+}
+
+function logFiveAndSix() {
+    logFive();
+    console.log("6");
+}
+
+logFiveAndSix();
 
 hello();
 console.log(hello.language);

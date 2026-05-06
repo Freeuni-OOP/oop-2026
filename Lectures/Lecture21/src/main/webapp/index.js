@@ -1,3 +1,6 @@
+import hello from "./prototypes.js";
+import animal from "./lion.json" with { type: "json" };
+
 //------------------ check execution order-----------------------
 console.log("1");
 
@@ -6,6 +9,10 @@ setTimeout(() => console.log("2"), 0);
 Promise.resolve().then(() => console.log("3"));
 
 console.log("4");
+
+hello();
+console.log(hello.language);
+console.log(animal);
 
 //---------------------------------------------------------------
 

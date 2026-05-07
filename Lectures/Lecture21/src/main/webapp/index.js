@@ -76,3 +76,7 @@ function addUser() {
             $status.text('Error: ' + error);
         });
 }
+
+// `index.js` is an ES module; expose handlers for inline HTML attributes.
+window.loadUsers = loadUsers;
+window.addUser = addUser;

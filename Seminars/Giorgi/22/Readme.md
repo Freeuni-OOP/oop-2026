@@ -1,0 +1,66 @@
+## TypeScript - Book App
+
+პატარა აპლიკაცია წიგნებისთვის. უნდა შეგვეძლოს ახალი წიგნის დამატება და წიგნის მოძებნა აიდით.
+
+- **ფრონტენდი:** TypeScript
+- **ბექენდი:** Java (Servlet, Tomcat 10.1)
+- **მონაცემთა ბაზა:** MySQL
+- **ქეში:** Redis
+
+---
+
+### არქიტექტურა
+
+```
+Browser → BookServlet → Redis (ქეში)
+                      ↓ (თუ ქეშში არ არის)
+                      MySQL → Redis-ში შენახვა
+```
+
+### პაკეტები (Backend)
+
+```
+src/main/java/
+├── servlet/
+│   └── BookServlet.java   ← HTTP layer
+├── dao/
+│   └── BookDao.java       ← SQL queries
+├── db/
+│   └── DataSource.java    ← კავშირი DB-სთან (Singleton)
+└── model/
+    └── Book.java          ← მოდელი
+```
+
+### პაკეტები (Frontend)
+
+```
+src/
+├── index.ts               ← UI logic
+├── api/bookApi.ts         ← HTTP requests
+├── service/bookService.ts ← business logic
+└── model/book.ts          ← interface
+```
+
+---
+
+### გაშვება
+
+```bash
+docker-compose up --build
+```
+
+აპი გაიხსნება: [http://localhost:8080](http://localhost:8080)
+
+### API
+
+| Method | URL | აღწერა |
+|--------|-----|--------|
+| GET | `/book?id=1` | წიგნის მოძებნა ID-ით |
+| POST | `/book?title=Clean+Code` | ახალი წიგნის დამატება |
+
+---
+
+### შენიშვნა
+
+პირველი მოთხოვნა MySQL-იდან მოდის, შემდეგი კი Redis-იდან (ქეში).
+ბრაუზერში `Source: MYSQL` ან `Source: REDIS` გამოჩნდება.

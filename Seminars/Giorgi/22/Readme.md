@@ -17,7 +17,7 @@ Browser → BookServlet → Redis (ქეში)
                       MySQL → Redis-ში შენახვა
 ```
 
-### პაკეტები (Backend)
+### სტრუქტურა (Backend)
 
 ```
 src/main/java/
@@ -31,7 +31,7 @@ src/main/java/
     └── Book.java          ← მოდელი
 ```
 
-### პაკეტები (Frontend)
+### სტრუქტურა (Frontend)
 
 ```
 src/

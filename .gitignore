@@ -3,4 +3,5 @@ out
 target
 *.iml
 node_modules
+dist
 .mvn

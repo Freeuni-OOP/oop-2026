@@ -11,9 +11,12 @@ public class DataSource {
 
     private static final Logger LOGGER = Logger.getLogger(DataSource.class.getName());
 
-    private static final String URL      = "jdbc:mysql://host.docker.internal:3306/book_db";
-    private static final String USER     = "root";
-    private static final String PASSWORD = "root";
+    private static final String URL = "jdbc:mysql://"
+            + System.getenv().getOrDefault("DB_HOST", "localhost")
+            + ":3306/"
+            + System.getenv().getOrDefault("DB_NAME", "book_db");
+    private static final String USER = System.getenv().getOrDefault("DB_USER", "root");
+    private static final String PASSWORD = System.getenv().getOrDefault("DB_PASSWORD", "root");
 
     private static volatile DataSource instance;
 
@@ -34,7 +37,10 @@ public class DataSource {
                 return;
             } catch (SQLException | ClassNotFoundException e) {
                 LOGGER.log(Level.WARNING, "DB not ready, retrying... (" + retries + " left)");
-                try { Thread.sleep(3000); } catch (InterruptedException ignored) {}
+                try {
+                    Thread.sleep(3000);
+                } catch (InterruptedException ignored) {
+                }
             }
         }
         LOGGER.log(Level.SEVERE, "Failed to connect to database after all retries");

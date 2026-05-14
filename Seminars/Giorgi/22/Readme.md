@@ -58,9 +58,22 @@ docker-compose up --build
 | GET | `/book?id=1` | წიგნის მოძებნა ID-ით |
 | POST | `/book?title=Clean+Code` | ახალი წიგნის დამატება |
 
----
-
 ### შენიშვნა
 
 პირველი მოთხოვნა MySQL-იდან მოდის, შემდეგი კი Redis-იდან (ქეში).
 ბრაუზერში `Source: MYSQL` ან `Source: REDIS` გამოჩნდება.
+
+-------------
+
+### Debugger-ის დაკავშირება IntelliJ-ში (პორტი 5005)
+
+1. **Run → Edit Configurations**
+2. **+** → **Remote JVM Debug**
+3. შეავსეთ მონაცემები:
+    - **Name:** Docker Debug
+    - **Host:** `localhost`
+    - **Port:** `5005`
+4. **OK**
+5. დოკერის პარალელურად, გაუშვით შექმნილი Debug კონფიგურაცია და დასვით ბრეიქფოინთები კოდში.
+
+-------------

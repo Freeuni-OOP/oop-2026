@@ -36,6 +36,10 @@ services:
 
     environment:
       JAVA_OPTS: "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005"
+      DB_HOST: mysql
+      DB_NAME: book_db
+      DB_USER: root
+      DB_PASSWORD: root
 
     depends_on:
       mysql:

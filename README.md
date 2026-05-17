@@ -24,4 +24,4 @@ push** ბრძანებებით კი თქვენი ცვლი�
 | 03 - Sudoku   | 8    | [link](https://classroom.github.com/a/1RNHqGtd) | 26/04/2026       |
 | 04 - Threads  | 8    | [link](https://classroom.github.com/a/ul3CrUrh) | 10/05/2026       |
 | 05 - Web      | 7    | [link](https://classroom.github.com/a/Ws9PYJiR) | 24/05/2026       |
-| Final Project | 30   | TODO                                            | TODO             |
+| Final Project | 30   | [link](https://classroom.github.com/a/skmUAHf8) | 03/07/2026       |

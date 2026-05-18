@@ -11,14 +11,42 @@ public class EmployeeCatalog {
     }
 
     public Employee findEmployeeWithHighestSalary() {
-        return null; // TODO
+        return employees.stream()
+                .reduce((curr, next) -> curr.getSalary() > next.getSalary() ? curr : next)
+                .orElseThrow(() -> new NoSuchElementException("Employee not found"));
     }
 
     public int getSalaryGapInDepartment(Department department) {
-        return 0; // TODO
+        Pair<Integer, Integer> maxMin = employees.stream()
+                .filter(employee -> employee.getDepartment().equals(department))
+                .map(employee -> new Pair<>(employee.getSalary(), employee.getSalary()))
+                .reduce((curr, next) -> new Pair<>(Math.max(curr.getKey(), next.getKey()),
+                        Math.min(curr.getValue(), next.getValue()))
+                ).orElseGet(() -> new Pair<>(0, 0));
+
+        return maxMin.getKey() - maxMin.getValue();
     }
 
     public Department findDepartmentWithHighestCumulativeSalary() {
-        return null; // TODO
+
+        return employees.stream()
+                .map(employee -> {
+                    Map<Department, Integer> result = new HashMap<>();
+                    result.put(employee.getDepartment(), employee.getSalary());
+                    return result;
+                })
+                .reduce(new HashMap<>(),
+                        (curr, next) -> {
+                            Department department = next.keySet().iterator().next();
+                            int salary = next.get(department);
+
+                            curr.put(department, curr.getOrDefault(department, 0) + salary);
+                            return curr;
+                        })
+                .entrySet()
+                .stream()
+                .reduce((curr, next) -> curr.getValue() > next.getValue() ? curr : next)
+                .get()
+                .getKey();
     }
 }

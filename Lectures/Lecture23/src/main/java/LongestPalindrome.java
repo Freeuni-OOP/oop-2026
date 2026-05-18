@@ -14,7 +14,9 @@ public class LongestPalindrome {
         example: ("madam", "racecar", "apple", "baNaNa", "Detartrated", "LeveL") --> "Detartrated"
      */
     public static String findLongestPalindrome(List<String> words) {
-        return "";
+        return words.stream()
+                .filter(w -> w.equalsIgnoreCase(new StringBuilder(w).reverse().toString()))
+                .reduce("", (a, b) -> a.length() >= b.length() ? a : b);
     }
 
 }

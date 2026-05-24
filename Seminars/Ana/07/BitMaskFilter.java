@@ -1,3 +1,5 @@
+import java.lang.Math;
+
 public class BitMaskFilter implements Filter {
     private long[] masks;
     private int count;

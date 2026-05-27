@@ -1,0 +1,22 @@
+services:
+  mysql:
+    image: mysql:8.4
+    container_name: seminar25-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: book_db
+      MYSQL_USER: rootuser
+      MYSQL_PASSWORD: rootpass
+      MYSQL_ROOT_PASSWORD: rootpass
+    ports:
+      - "3307:3306"          # host:container — connect on localhost:3307 (3306 may be taken by a local MySQL)
+    volumes:
+      - mysql_data:/var/lib/mysql   # persist data between restarts
+    healthcheck:
+      test: [ "CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "rootuser", "-prootpass" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  mysql_data:

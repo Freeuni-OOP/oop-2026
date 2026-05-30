@@ -1,0 +1,30 @@
+.form {
+  background: #fff;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+  padding: 24px;
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: 500px;
+}
+
+.form h3 { font-size: 17px; font-weight: 700; color: #4f46e5; }
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.field label { font-size: 13px; font-weight: 600; color: #374151; }
+
+.btnSubmit {
+  background: #4f46e5;
+  color: #fff;
+  font-weight: 600;
+  padding: 10px;
+  font-size: 14px;
+  align-self: flex-start;
+}
+

@@ -1,0 +1,31 @@
+version: "3.9"
+
+# Lecture 26 – MySQL for the Spring Boot backend
+# Port 3308 is used so it does not clash with Lecture 25 (3307) or a local MySQL (3306).
+#
+# Start:  docker compose up -d
+# Stop:   docker compose down
+# Reset:  docker compose down -v   (deletes the volume / all data)
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: lecture26-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpass
+      MYSQL_DATABASE: lecture26db
+      MYSQL_USER: lecture26user
+      MYSQL_PASSWORD: lecture26pass
+    ports:
+      - "3308:3306"
+    volumes:
+      - lecture26_mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  lecture26_mysql_data:
+

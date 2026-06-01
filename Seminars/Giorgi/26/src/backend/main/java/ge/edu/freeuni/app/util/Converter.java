@@ -6,6 +6,6 @@ import ge.edu.freeuni.app.model.Book;
 public class Converter {
 
     public static BookResponse toBookResponse(Book book) {
-        return new BookResponse(book.getId(), book.getTitle());
+        return new BookResponse(book.getTitle());
     }
 }

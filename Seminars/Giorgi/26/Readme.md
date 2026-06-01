@@ -17,7 +17,8 @@ Backend-ს დაუმატეთ React Frontend (Parcel bundler).
 │       ├── package.json
 │       └── src/
 │           ├── index.jsx         ← React entry point
-│           ├── App.jsx           ← მთავარი კომპონენტი
+│           ├── index.css         ← React styles
+│           ├── BooksApp.jsx           ← მთავარი კომპონენტი
 │           └── components/
 │               ├── BookList.jsx  ← წიგნების სია
 │               └── BookItem.jsx  ← ერთი წიგნი

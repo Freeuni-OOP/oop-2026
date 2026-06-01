@@ -11,6 +11,5 @@ import lombok.Setter;
 @Setter
 public class BookResponse {
 
-    private int id;
     private String title;
 }

@@ -1,0 +1,30 @@
+.page   { max-width: 680px; margin: 0 auto; padding: 32px 20px; }
+
+.back {
+  background: none;
+  color: #4f46e5;
+  font-weight: 600;
+  padding: 0;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.status { padding: 40px 20px; text-align: center; }
+
+.card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,.1);
+  padding: 28px;
+}
+.card h2 { font-size: 22px; margin-bottom: 16px; }
+
+.table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+.table td { padding: 10px 8px; border-bottom: 1px solid #f0f0f0; font-size: 15px; }
+.table td:first-child { color: #6b7280; font-weight: 600; width: 100px; }
+
+.actions { display: flex; gap: 12px; }
+.btnEdit   { background: #4f46e5; color: #fff; font-weight: 600; }
+.btnDelete { background: #dc2626; color: #fff; font-weight: 600; }
+.btnCancel { margin-top: 12px; background: #e5e7eb; color: #374151; font-weight: 600; }
+

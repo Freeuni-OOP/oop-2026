@@ -1,0 +1,22 @@
+<web-app>
+
+    <context-param>
+        <param-name>jdbcUrl</param-name>
+        <param-value>jdbc:mysql://localhost:3306/users_schema</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>dbUser</param-name>
+        <param-value>root</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>dbPassword</param-name>
+        <param-value>root</param-value>
+    </context-param>
+
+    <listener>
+        <listener-class>ge.edu.freeuni.listener.AppListener</listener-class>
+    </listener>
+
+</web-app>

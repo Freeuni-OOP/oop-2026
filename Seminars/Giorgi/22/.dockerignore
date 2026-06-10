@@ -1,0 +1,5 @@
+src/main/webapp/frontend/node_modules
+src/main/webapp/frontend/dist
+src/main/webapp/frontend/.npmrc
+target
+

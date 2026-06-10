@@ -1,0 +1,26 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="./styles.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script type="module" src="index.js"></script>
+    <title>Fetch API Example</title>
+</head>
+<body>
+
+<h2>Simple Fetch API Example</h2>
+
+<div class="actions">
+    <label class="sr-only" for="userName">User name</label>
+    <input id="userName" type="text" placeholder="Enter user name"/>
+    <button onclick="addUser()">Add User</button>
+    <button onclick="loadUsers()">Load Users</button>
+</div>
+
+<p id="status"></p>
+
+<pre id="result">Click button...</pre>
+
+</body>
+</html>

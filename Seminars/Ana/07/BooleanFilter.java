@@ -1,3 +1,5 @@
+import java.lang.Math;
+
 public class BooleanFilter implements Filter {
     private boolean[] indexes;
     private int count;

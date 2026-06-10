@@ -1,0 +1,30 @@
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #4f46e5;
+  color: #fff;
+  padding: 0 24px;
+  height: 56px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.2);
+}
+
+.brand { font-size: 18px; font-weight: 700; color: #fff; }
+.sub   { font-size: 13px; opacity: .7; margin-left: 6px; }
+
+.actions { display: flex; align-items: center; gap: 12px; }
+.user    { font-size: 14px; opacity: .9; }
+
+.btnLogin {
+  background: #fff;
+  color: #4f46e5;
+  font-weight: 600;
+}
+
+.btnLogout {
+  background: rgba(255,255,255,.15);
+  color: #fff;
+  font-weight: 600;
+  border: 1px solid rgba(255,255,255,.4);
+}
+

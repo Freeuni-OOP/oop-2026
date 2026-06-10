@@ -1,0 +1,17 @@
+{
+  "name": "book-app",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@babel/preset-react": "^7.24.1",
+    "parcel": "^2.12.0"
+  }
+}
+

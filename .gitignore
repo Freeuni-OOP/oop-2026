@@ -3,4 +3,6 @@ out
 target
 *.iml
 node_modules
+dist
 .mvn
+tomcat.8080

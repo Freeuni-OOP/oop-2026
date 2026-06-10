@@ -1,0 +1,73 @@
+1. user
+    id - int, primary key
+    username - varchar(50), unique
+    password - varchar(255)
+    role - ENUM('USER', 'ADMIN')
+    active - boolean
+
+2. auction
+    id - int, primary key
+    title - varchar(100)
+    description - text
+    start_price - double
+    current_price - double
+    start_time - datetime
+    end_time - datetime
+    status - ENUM('UPCOMING', 'ACTIVE', 'FINISHED', 'CANCELLED')
+    winner_user_id - int, foreign key references user(id)
+
+3. auction_image
+    id - int, primary key
+    auction_id - int, foreign key references auction(id)
+    image_url - varchar(255)
+
+4. bid
+    id - int, primary key
+    auction_id - int, foreign key references auction(id)
+    user_id - int, foreign key references user(id)
+    amount - double
+    bid_time - datetime
+
+5. notification
+    id - int, primary key
+    user_id - int, foreign key references user(id)
+    message - text
+    read_status - boolean
+    created_at - datetime
+
+// ----------- dao ------------
+
+interface UserDao {
+    User findById(int id);
+    User findByUsername(String username);
+    void save(User user);
+}
+
+interface AuctionDao {
+    Auction findById(int id);
+    List<Auction> findAll();
+    List<Auction> search(String title, String status);
+    void save(Auction auction);
+    void update(Auction auction);
+    void delete(int id);
+}
+
+interface BidDao {
+    void save(Bid bid);
+    List<Bid> getAuctionBids(int auctionId);
+    Bid getHighestBid(int auctionId);
+}
+
+interface NotificationDao {
+    void save(Notification notification);
+    List<Notification> getUserNotifications(int userId);
+}
+
+// ----------- model ---------------
+
+class User {}
+class Auction {}
+class AuctionImage {}
+class Bid {}
+class Notification {}
+

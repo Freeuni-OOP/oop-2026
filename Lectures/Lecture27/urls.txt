@@ -1,0 +1,195 @@
+// ############## Authentication ##############
+
+1. GET /register - AuthServlet
+
+    აბრუნებს რეგისტრაციის ფორმას
+
+------------------------------------------------
+
+2. POST /register - AuthServlet
+
+    ქმნის USER ანგარიშს
+
+------------------------------------------------
+
+3. GET /login - AuthServlet
+
+    აბრუნებს ლოგინის ფორმას
+
+------------------------------------------------
+
+4. POST /login - AuthServlet
+
+    ამოწმებს username/password-ს
+    სესიაში ინახავს:
+
+    session.setAttribute("userId", user.getId());
+    session.setAttribute("role", user.getRole());
+
+------------------------------------------------
+
+5. POST /logout - AuthServlet
+
+    invalidate() სესიას
+
+// ############## Auction Management (Admin Only) ##############
+
+6. GET /admin/auctions - AdminAuctionServlet
+
+    აჩვენებს ყველა აუქციონს
+
+------------------------------------------------
+
+7. POST /admin/auction/add - AdminAuctionServlet
+
+    ქმნის ახალ აუქციონს
+
+    მხოლოდ ADMIN
+
+------------------------------------------------
+
+8. POST /admin/auction/edit - AdminAuctionServlet
+
+    არედაქტირებს აუქციონს
+
+    მხოლოდ ADMIN
+
+------------------------------------------------
+
+9. POST /admin/auction/cancel - AdminAuctionServlet
+
+    აუქციონის გაუქმება
+
+    მხოლოდ ADMIN
+
+// ############ Auction Browsing ###############
+
+10. GET /auctions - AuctionServlet
+
+    აუქციონების სია
+
+    search params:
+
+    title
+    status
+    startDate
+    endDate
+
+------------------------------------------------
+
+11. GET /auction?id=1 - AuctionServlet
+
+    კონკრეტული აუქციონის დეტალები
+
+    აბრუნებს:
+
+    auction
+    images
+    bid history
+    highest bid
+
+// ################## Bidding ##################
+
+12. POST /bid - BidServlet
+
+    ბიდის დადება
+
+    მხოლოდ USER
+
+    ამოწმებს:
+
+    1. მომხმარებელი ავტორიზებულია
+    2. აუქციონი ACTIVE სტატუსშია
+    3. end_time არ გასულა
+    4. ახალი ბიდი > current_price
+
+    წარმატების შემთხვევაში:
+
+    bid ცხრილში ინახება
+    auction.current_price ახლდება
+
+// ################## Notifications ##################
+
+13. GET /notifications - NotificationServlet
+
+    მომხმარებლის შეტყობინებები
+
+------------------------------------------------
+
+14. POST /notifications/read - NotificationServlet
+
+    წაკითხულად მონიშვნა
+
+// ################## ServletContext ##################
+
+1. Database Connection Pool
+
+2. UserDao
+3. AuctionDao
+4. BidDao
+5. NotificationDao
+
+context.setAttribute("userDao", userDao);
+context.setAttribute("auctionDao", auctionDao);
+context.setAttribute("bidDao", bidDao);
+context.setAttribute("notificationDao", notificationDao);
+
+
+// ################## უსაფრთხოება ##################
+
+AdminAuctionServlet
+
+    role == ADMIN
+
+BidServlet
+
+    role == USER
+
+თუ მომხმარებელს შესაბამისი როლი არ აქვს:
+
+    response.sendError(403);
+
+ყველა დაცულ URL-ზე ხდება session-ის შემოწმება.
+
+
+
+--------------------------------------------------------
+
+კონკურენტულობა:
+
+ბიდის დადების დროს ვიყენებთ database transaction-ს.
+
+1. იწყება transaction
+2. SELECT auction FOR UPDATE
+3. მოწმდება current_price
+4. თუ ახალი ბიდი უფრო მაღალია:
+      - ინახება bid
+      - ახლდება auction.current_price
+5. COMMIT
+
+ამის შედეგად კონკრეტული აუქციონის ჩანაწერი იბლოკება
+transaction-ის დასრულებამდე.
+
+თუ ორი მომხმარებელი ერთდროულად ცდილობს ბიდის დადებას,
+მეორე დაელოდება პირველის დასრულებას და შემდეგ
+თავიდან შეამოწმებს ფასს.
+
+ამიტომ შეუძლებელია ერთდროულად ორი გამარჯვებული ბიდის მიღება.
+
+--------------------------------------------------------
+
+აუქციონის დასრულება:
+
+AuctionFinishServlet (cron/job)
+
+პერიოდულად ამოწმებს:
+
+status = ACTIVE
+end_time < NOW()
+
+თუ დასრულებულია:
+
+1. პოულობს ყველაზე მაღალ ბიდს
+2. winner_user_id ინახება auction-ში
+3. სტატუსი ხდება FINISHED
+4. იგზავნება შეტყობინება გამარჯვებულთან
